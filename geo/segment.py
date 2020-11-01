@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 """
 segment between two points.
 """
@@ -58,9 +59,9 @@ class Segment:
         """
         svg for tycat.
         """
-        return '<line x1="{}" y1="{}" x2="{}" y2="{}"/>\n'.format(
+        return ('<line x1="{}" y1="{}" x2="{}" y2="{}"/>\n'.format(
             *self.endpoints[0].coordinates,
-            *self.endpoints[1].coordinates)
+            *self.endpoints[1].coordinates))
 
     def endpoint_not(self, point):
         """

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 """
 points (any dimension).
 """
@@ -24,6 +25,8 @@ class Point:
         build new point using an array of coordinates.
         """
         self.coordinates = coordinates
+        self.x = coordinates[0]
+        self.y = coordinates[1]
 
     def copy(self):
         """
@@ -35,8 +38,8 @@ class Point:
         """
         euclidean distance between two points.
         """
-        if self < other:
-            return other.distance_to(self)  # we are now a symmetric function
+        # if self < other:
+        #     return other.distance_to(self)  # we are now a symmetric function
 
         total = 0
         for c_1, c_2 in zip(self.coordinates, other.coordinates):
@@ -58,13 +61,20 @@ class Point:
         """
         return '<use xlink:href="#c" x="{}" y="{}"/>\n'.format(*self.coordinates)
 
-    def cross_product(self, other):
+    def cross_product(self, other, another):
         """
         cross product between 2 2d vectors.
         """
         x_1, y_1 = self.coordinates
         x_2, y_2 = other.coordinates
-        return -y_1*x_2 + x_1*y_2
+        x_3, y_3 = another.coordinates
+        x_ab = x_2 - x_1
+        y_ab = y_2 - y_1
+
+        x_ac = x_3 - x_1
+        y_ac = y_3 - y_1
+
+        return x_ab * y_ac - x_ac * y_ab
 
     def __add__(self, other):
         """

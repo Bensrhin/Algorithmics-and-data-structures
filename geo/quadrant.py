@@ -1,7 +1,9 @@
+#!/usr/bin/env python
 """
 quadrants are rectangular boxes delimiting a set of items.
 they are used in display to compute image sizes.
 """
+
 
 class Quadrant:
     """
